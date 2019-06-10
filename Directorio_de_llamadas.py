@@ -1,17 +1,20 @@
 import random
 from datetime import datetime, timedelta
+
 amigos = ['juan', 'carlos', 'ana']
 directory = []
 
 
+# funcion para generar fecha aleatoria
+
+
 def get_rnd_date(start, end, fmt):
+    s = datetime.strptime(start, fmt)
+    e = datetime.strptime(end, fmt)
 
-  s = datetime.strptime(start, fmt)
-  e = datetime.strptime(end, fmt)
+    delta = e - s
 
-  delta = e - s
-
-  return s + timedelta(days=(random.random() * delta.days))
+    return s + timedelta(days=(random.random() * delta.days))
 
 
 for x in range(10):
@@ -21,4 +24,4 @@ for x in range(10):
     temp.append(random.randint(100, 1000))
     directory.append(temp)
 
-print(*sorted(directory), sep = "\n")
+print(*sorted(directory), sep="\n")
